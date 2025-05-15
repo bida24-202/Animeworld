@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feedback - AnimeWorld</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme" id="feedback-page">
+  <header>
+    <h1>AnimeWorld</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="feedback.html" class="active">Feedback</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Your Feedback</h2>
+      <p class="feedback-intro">We'd love to hear your thoughts about AnimeWorld! Please fill out the form below.</p>
+      
+      <form id="feedbackForm" class="feedback-form" action="thankyou.html" method="GET">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="fav-anime">Favorite Anime</label>
+          <input type="text" id="fav-anime" name="fav-anime" class="form-control">
+        </div>
+        
+        <div class="form-group">
+          <div class="rating-container">
+            <label>Your Rating:</label>
+            <div class="rating-options">
+              <input type="radio" id="star5" name="rating" value="5">
+              <label for="star5" class="star">1</label>
+              <input type="radio" id="star4" name="rating" value="4">
+              <label for="star4" class="star">2</label>
+              <input type="radio" id="star3" name="rating" value="3">
+              <label for="star3" class="star">3</label>
+              <input type="radio" id="star2" name="rating" value="2">
+              <label for="star2" class="star">4</label>
+              <input type="radio" id="star1" name="rating" value="1">
+              <label for="star1" class="star">5</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="feedback">Your Feedback</label>
+          <textarea id="feedback" name="feedback" rows="5" class="form-control" required></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="submit-button">Submit Feedback</button>
+        </div>
+      </form>
+    </section>
+    <section>
+      <h2>Recent Feedback</h2>
+      <div class="feedback-list">
+        <div class="feedback-item">
+          <p><strong>John Doe:</strong> "AnimeWorld is my go-to site for all things anime! Love the content!"</p>
+        </div>
+        <div class="feedback-item">
+          <p><strong>Jane Smith:</strong> "Great reviews and recommendations. Keep up the good work!"</p>
+        </div>
+        <div class="feedback-item">
+          <p><strong>Akira Tanaka:</strong> "I appreciate the detailed articles. They really help me discover new shows!"</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 AnimeWorld. All rights reserved.</p>
+  </footer>
+  <script src="script.js"></script>
+  <script>
+    // JavaScript for form validation and submission
+    document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+    });
+  </script>
+</body>
+</html>

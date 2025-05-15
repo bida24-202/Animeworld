@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery - AnimeWorld</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme" id="gallery-page">
+  <header>
+    <h1>AnimeWorld</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Anime Gallery</h2>
+      <p class="gallery-intro">Browse amazing anime artwork and fan creations. Click on any image to view larger version.</p>
+      <div class="gallery">
+        <figure onclick="openModal('fate stay night.jpg', 'Fate/stay night – Archer')">
+          <img src="fate stay night.jpg" alt="Archer from Fate/stay night" loading="lazy" />
+          <figcaption>Fate/stay night – Archer</figcaption>
+        </figure>
+        <figure onclick="openModal('Honkai Star Rail.webp', 'Honkai: Star Rail – Blade')">
+          <img src="Honkai Star Rail.webp" alt="Blade from Honkai: Star Rail" loading="lazy" />
+          <figcaption>Honkai: Star Rail – Blade</figcaption>
+        </figure>
+        <figure onclick="openModal('Demon Slayer.jpg', 'Demon Slayer – Tanjiro')">
+          <img src="Demon Slayer.jpg" alt="Tanjiro from Demon Slayer" loading="lazy" />
+          <figcaption>Demon Slayer – Tanjiro</figcaption>
+        </figure>
+        <figure onclick="openModal('Vampire Princess.webp', 'Vampire Princess Miyu')">
+          <img src="Vampire Princess.webp" alt="Vampire Princess Miyu" loading="lazy" />
+          <figcaption>Vampire Princess Miyu</figcaption>
+        </figure>
+        <figure onclick="openModal('https://wallpapercave.com/wp/wp4923981.jpg', 'My Hero Academia – Deku')">
+          <img src="https://wallpapercave.com/wp/wp4923981.jpg" alt="Deku from My Hero Academia" loading="lazy" />
+          <figcaption>My Hero Academia – Deku</figcaption>
+        </figure>
+        <figure onclick="openModal('https://wallpapercave.com/wp/wp9416948.jpg', 'Jujutsu Kaisen – Gojo')">
+          <img src="https://wallpapercave.com/wp/wp9416948.jpg" alt="Gojo from Jujutsu Kaisen" loading="lazy" />
+          <figcaption>Jujutsu Kaisen – Gojo</figcaption>
+        </figure>
+        <figure onclick="openModal('https://wallpapercave.com/wp/wp12014274.jpg', 'Chainsaw Man – Denji')">
+          <img src="https://wallpapercave.com/wp/wp12014274.jpg" alt="Denji from Chainsaw Man" loading="lazy" />
+          <figcaption>Chainsaw Man – Denji</figcaption>
+        </figure>
+        <figure onclick="openModal('attack-on-titan.jpeg', 'Attack on Titan – Levi')">
+          <img src="attack-on-titan.jpeg" alt="Levi from Attack on Titan" loading="lazy" />
+          <figcaption>Attack on Titan – Levi</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="imageModal" class="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div class="modal-content">
+        <img id="modalImage" class="modal-img" src="" alt="">
+        <div id="modalCaption" class="modal-caption"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 AnimeWorld. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Lightbox functionality
+    function openModal(src, caption) {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImage');
+      const captionText = document.getElementById('modalCaption');
+      
+      modal.style.display = "block";
+      modalImg.src = src;
+      captionText.innerHTML = caption;
+      
+      // Close when clicking outside image
+      modal.onclick = function(event) {
+        if (event.target === modal) {
+          closeModal();
+        }
+      }
+    }
+    
+    function closeModal() {
+      document.getElementById('imageModal').style.display = "none";
+    }
+    
+    // Close with ESC key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>

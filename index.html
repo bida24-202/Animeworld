@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AnimeWorld</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme" id="home-page">
+  <header>
+    <h1>AnimeWorld</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="welcome-section">
+      <h2>Welcome to AnimeWorld</h2>
+      <p>Your ultimate destination for the latest and greatest in anime.</p>
+      <p>Satisfy your animation desires with AnimeWorld where you will
+        be feasting your eyes on the latest and the classics that the
+        world has ever seen!
+      </p>
+    </section>
+
+    <section>
+      <h2>Here is a lineup of AnimeWorld</h2>
+      <div class="slideshow-container">
+        <div class="slide active">
+          <div class="slide-content">
+            <div class="slide-text">
+              <h3>Fate/stay night</h3>
+              <p>A thrilling fantasy of mages and heroic spirits battling for the Holy Grail.</p>
+            </div>
+            <div class="slide-image">
+              <img src="fate stay night.jpg" alt="Fate/stay night:Unlimited Blade Works">
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide-content">
+            <div class="slide-text">
+              <h3>Honkai: Star Rail</h3>
+              <p>Blade slashes through enemies in a sci-fi universe where every decision could shape the stars. Dive into this immersive galactic journey.</p>
+            </div>
+            <div class="slide-image">
+              <img src="Honkai Star Rail.webp" alt="Blade from Honkai: Star Rail">
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide-content">
+            <div class="slide-text">
+              <h3>Demon Slayer</h3>
+              <p>Follow Tanjiro Kamado's journey to become a demon slayer and cure his sister in this visually stunning action series.</p>
+            </div>
+            <div class="slide-image">
+              <img src="Demon Slayer.jpg" alt="Demon Slayer">
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide-content">
+            <div class="slide-text">
+              <h3>Vampire Princess</h3>
+              <p>A dark fantasy tale of vampires, power struggles, and forbidden love in a gothic supernatural world.</p>
+            </div>
+            <div class="slide-image">
+              <img src="Vampire Princess.webp" alt="Vampire Princess">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dots-container">
+        <span class="dot active" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 AnimeWorld. All rights reserved.</p>
+  </footer>
+
+  <script>
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName("slide");
+    const dots = document.getElementsByClassName("dot");
+    let timer;
+
+    function showSlidesAuto() {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("active");
+        dots[i].classList.remove("active");
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+      slides[slideIndex - 1].classList.add("active");
+      dots[slideIndex - 1].classList.add("active");
+      timer = setTimeout(showSlidesAuto, 5000);
+    }
+
+    function currentSlide(n) {
+      clearTimeout(timer);
+      slideIndex = n;
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("active");
+        dots[i].classList.remove("active");
+      }
+      slides[n - 1].classList.add("active");
+      dots[n - 1].classList.add("active");
+      timer = setTimeout(showSlidesAuto, 5000);
+    }
+
+    showSlidesAuto();
+    
+    const slideshow = document.querySelector('.slideshow-container');
+    slideshow.addEventListener('mouseenter', () => clearTimeout(timer));
+    slideshow.addEventListener('mouseleave', showSlidesAuto);
+  </script>
+</body>
+</html>
